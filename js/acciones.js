@@ -1,13 +1,13 @@
 // JavaScript Document
 
-$(document).ready(function(e) {
+$(document).ready(function(e){
 document.addEventListener("deviceready", onDeviceReady, false);
 
 });
 
 function onDeviceReady(){
 	
-	$('#position').on('click', function(){
+	$('#posicion').on('click', function(){
 		getPosition ();
 	});
 	
@@ -19,11 +19,11 @@ function onDeviceReady(){
 
 function getPosition(){
 	var options ={
-		enableHighAccuracy : true,
+		enableHighAccuracy :true,
 		maximumAge: 3600000
 	}
 	
-	var watchID = navigator.grolocation.getCurrentPosition(onSuccess, onError, options);
+	var watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
 	function onSuccess(position){
 		 
       alert('Latitude:'    +position.coords.latitude   +'\n'+
@@ -45,15 +45,15 @@ function watchPosition(){
 	var options={
 		maximumAge : 3600000,
 		timeout : 3000,
-		enableHighAccuracy : true,
+		enableHighAccuracy :true,
 	}
 	
 	var watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
 	function onSuccess(position){
 		
-$('#latitude').html(position.coords.latitude);
+$('#latitud').html(position.coords.latitude);
 $('#longitud').html(position.coords.longitude);
-$('#altitude').html(position.coords.altitude);
+$('#altitud').html(position.coords.altitude);
 $('#accuracy').html(position.coords.accuracy);
 $('#aaccuracy').html(position.coords.altitudeAccuracy);
 $('#headingg').html(position.coords.heading);
